@@ -21,19 +21,16 @@ namespace NetsBrokerIntegration.DotNet.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> Signin()
         {
-            // First get the authentication information from identity server
             var auth= HttpContext.GetOwinContext().Authentication;
             var loginInfo = await auth.GetExternalLoginInfoAsync();
 
             if (loginInfo == null)
             {
-                //go home, invalid callback
                 return RedirectToAction("Index");
             }
 
             var id = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
             id.AddClaims(loginInfo.ExternalIdentity.Claims);
-
             HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), id);
             return RedirectToAction("LoggedInSuccess");
         }

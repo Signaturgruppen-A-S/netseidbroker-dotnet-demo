@@ -51,7 +51,7 @@ namespace NetsBrokerIntegration.DotNet
                 RedirectUri = _redirectUri,
                 PostLogoutRedirectUri = _postLogoutRedirectUri,
                 ResponseType = OpenIdConnectResponseType.CodeIdToken,
-                Scope = "openid",
+                Scope = "openid mitid nemid",
                 SaveTokens = true,
 
                 Notifications = new OpenIdConnectAuthenticationNotifications
@@ -77,14 +77,17 @@ namespace NetsBrokerIntegration.DotNet
                             var configuration = await notification.Options.ConfigurationManager.GetConfigurationAsync(notification.Request.CallCancelled);
                             var tokenEndpointResult = await ExchangeCodeForTokens(notification, client, configuration);
 
-                            // Add the identity token to the returned ClaimsIdentity to make it easier to retrieve.
+                            var idToken = tokenEndpointResult.Value<string>(OpenIdConnectParameterNames.IdToken);
+                            var accessToken = tokenEndpointResult.Value<string>(OpenIdConnectParameterNames.AccessToken);
+
                             notification.AuthenticationTicket.Identity.AddClaim(new Claim(
                                 type: OpenIdConnectParameterNames.IdToken,
-                                value: tokenEndpointResult.Value<string>(OpenIdConnectParameterNames.IdToken)));
+                                value: idToken));
+                            notification.AuthenticationTicket.Identity.AddClaim(new Claim(
+                                type: OpenIdConnectParameterNames.AccessToken,
+                                value: accessToken));
 
-                            // Retrieve the claims from UserInfo endpoint using the access token as bearer token.
-                            var accesstoken = tokenEndpointResult.Value<string>(OpenIdConnectParameterNames.AccessToken);
-                            var userInfoEndpointResult = await UserInfoEndpointClaims(notification, client, configuration, accesstoken);
+                            var userInfoEndpointResult = await UserInfoEndpointClaims(notification, client, configuration, accessToken);
 
                             //Security note: It is important to verify that the sub claim from ID token matches the sub claim in the UserInfo response
                             var userinfoSub = userInfoEndpointResult["sub"].Value<string>();
