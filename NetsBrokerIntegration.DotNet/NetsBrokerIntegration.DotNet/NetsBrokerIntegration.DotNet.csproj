@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CC47EE00-C105-4557-B4E4-905758C5798C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NetsBrokerIntegration.DotNet</RootNamespace>
+    <AssemblyName>NetsBrokerIntegration.DotNet</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44382</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IdentityModel, Version=4.2.0.0, Culture=neutral, PublicKeyToken=e7877f4675df049f, processorArchitecture=MSIL">
+      <HintPath>..\packages\IdentityModel.4.2.0\lib\net472\IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.3.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.3.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.5.3.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.5.3.0\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.3.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OpenIdConnect, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OpenIdConnect.4.1.0\lib\net45\Microsoft.Owin.Security.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.3.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuthenticationErrorResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\assets\arrow-down.svg" />
+    <Content Include="Content\assets\arrow-right-neg.svg" />
+    <Content Include="Content\assets\arrow-right.svg" />
+    <Content Include="Content\assets\chat.svg" />
+    <Content Include="Content\assets\chip.png" />
+    <Content Include="Content\assets\hamburger.svg" />
+    <Content Include="Content\assets\help\arrow-up-blue.svg" />
+    <Content Include="Content\assets\help\arrow-up.svg" />
+    <Content Include="Content\assets\help\confirm.svg" />
+    <Content Include="Content\assets\help\info.svg" />
+    <Content Include="Content\assets\help\signout.svg" />
+    <Content Include="Content\assets\mitid-logo-neg.png" />
+    <Content Include="Content\assets\mitid-logo.png" />
+    <Content Include="Content\assets\mitid\arrow_forward.svg" />
+    <Content Include="Content\assets\mitid\check.svg" />
+    <Content Include="Content\assets\mitid\font\eot\license.txt" />
+    <Content Include="Content\assets\mitid\font\ttf\license.txt" />
+    <Content Include="Content\assets\mitid\font\woff2\license.txt" />
+    <Content Include="Content\assets\mitid\font\woff\license.txt" />
+    <Content Include="Content\assets\mitid\mitid-logo.png" />
+    <Content Include="Content\assets\mitid\shield-temp.svg" />
+    <Content Include="Content\assets\nets-mitid-broker-negativ.svg" />
+    <Content Include="Content\assets\nets-mitid-broker.svg" />
+    <Content Include="Content\assets\notification.svg" />
+    <Content Include="Content\assets\phone.svg" />
+    <Content Include="Content\assets\popup.svg" />
+    <Content Include="Content\assets\scope.svg" />
+    <Content Include="Content\assets\signin.svg" />
+    <Content Include="Content\assets\success.svg" />
+    <Content Include="Content\assets\visa.svg" />
+    <Content Include="Content\assets\wireless.svg" />
+    <Content Include="Content\css\mitid.css" />
+    <Content Include="Content\css\site.min.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Content\js\redirect-popup-handling.js" />
+    <Content Include="Content\js\site.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-Bold.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-BoldItalic.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-ExtraLight.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-ExtraLightItalic.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-Italic.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-Light.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-LightItalic.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-Medium.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-MediumItalic.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-Regular.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-SemiBold.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-SemiBoldItalic.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-Text.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-TextItalic.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-Thin.eot" />
+    <Content Include="Content\assets\mitid\font\eot\IBMPlexSans-ThinItalic.eot" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-Bold.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-BoldItalic.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-ExtraLight.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-ExtraLightItalic.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-Italic.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-Light.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-LightItalic.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-Medium.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-MediumItalic.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-Regular.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-SemiBold.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-SemiBoldItalic.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-Text.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-TextItalic.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-Thin.ttf" />
+    <Content Include="Content\assets\mitid\font\ttf\IBMPlexSans-ThinItalic.ttf" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-Bold.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-BoldItalic.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-ExtraLight.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-ExtraLightItalic.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-Italic.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-Light.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-LightItalic.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-Medium.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-MediumItalic.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-Regular.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-SemiBold.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-SemiBoldItalic.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-Text.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-TextItalic.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-Thin.woff2" />
+    <Content Include="Content\assets\mitid\font\woff2\IBMPlexSans-ThinItalic.woff2" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-Bold.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-BoldItalic.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-ExtraLight.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-ExtraLightItalic.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-Italic.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-Light.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-LightItalic.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-Medium.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-MediumItalic.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-Regular.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-SemiBold.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-SemiBoldItalic.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-Text.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-TextItalic.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-Thin.woff" />
+    <Content Include="Content\assets\mitid\font\woff\IBMPlexSans-ThinItalic.woff" />
+    <Content Include="Content\_scss\styles.scss" />
+    <Content Include="Content\_scss\_help.scss" />
+    <Content Include="Content\_scss\_normalize.scss" />
+    <Content Include="Web.config" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\LoggedInSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Secure\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Views\Home\Claims.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62168</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44382/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

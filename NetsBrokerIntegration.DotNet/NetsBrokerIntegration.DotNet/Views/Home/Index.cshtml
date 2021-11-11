@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = null;
+}
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>Nets eID Broker</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="~/Content/icon.png" asp-append-version="true">
+
+    <link rel="stylesheet" href="~/Content/css/site.min.css" asp-append-version="true">
+
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body class="open">
+    <div class="ie11-warning">
+        <h1>This demo is not ready for IE11 yet. Please use Google Chrome.</h1>
+    </div>
+    <div class="popup-dialog">
+        <div class="popup-background"></div>
+        <div class="popup-content">
+            <figure class="popup"></figure>
+            <strong>Don’t see the secure MitID popup?</strong><p>We’ll help you re-launch the window</p>
+            <button class="btn btn-main" onclick="popupwindow('@Url.Action("LoginOidc","Home")', 'Sign in','400','588')">Reopen popup</button>
+            <button class="btn" onclick="closeWindow()">Get back</button>
+        </div>
+    </div>
+    <header>
+        <figure class="logo"></figure>
+
+    </header>
+    <div class="content">
+        <h1>
+            The easy way to<br />to OpenID Connect
+        </h1>
+        <h4>
+            This is an demonstration of how<br />
+            Nets eID Broker can be used.
+        </h4>
+        <a class="btn btn-main btn-signin btn-lg" href="@Url.Action("LoginOidc","Home")"> Sign in with redirect</a>
+        <a class="btn btn-main btn-signin btn-lg" onclick="popupwindow('@Url.Action("LoginOidc","Home")', 'Sign in','400','588')"> Sign in with pop-up</a>
+
+        <div class="help" id="helpbox-01">
+            <div class="help-box">
+                <figure class="info"></figure>
+                <h2>Quick demonstation<br /> of MitID integration</h2>
+                <p>Here you can choose between the two types of windows for MitID: Redirect or popup</p>
+            </div>
+            <div id="arrow-01-01" class="arrow-up"></div>
+            <div id="arrow-01-02" class="arrow-up"></div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+        //POP-UP events you define yourself.
+        //Defines your own interface for controlling the pop-up
+        // -- This is an example of how it can be done --
+        //if you want special error handling etc, define your own interface and handling
+        window.addEventListener("message", receiveMessage, false);
+
+        function receiveMessage(event) {
+            console.log(event);
+            if (event.data === 'CLOSE') {
+                closeWindow();
+            } else if (event.data === 'SUCCESS') {
+                closeWindow();
+                window.location.replace("@Url.Action("Claims","Home")")
+            }
+        }
+    </script>
+
+    <script src="~/Content/js/site.min.js" asp-append-version="true"></script>
+
+</body>
+
+</html>
