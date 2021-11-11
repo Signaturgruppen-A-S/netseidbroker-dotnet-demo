@@ -38,7 +38,7 @@ namespace NetsBrokerIntegration.DotNet
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Home/Signin"),
-                CookieSameSite = SameSiteMode.None,
+                CookieSameSite = SameSiteMode.None
             });
             
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
@@ -91,8 +91,8 @@ namespace NetsBrokerIntegration.DotNet
 
                             //Security note: It is important to verify that the sub claim from ID token matches the sub claim in the UserInfo response
                             var userinfoSub = userInfoEndpointResult["sub"].Value<string>();
-                            var idtokenSub = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
-                            if (userinfoSub == idtokenSub)
+                            var idTokenSub = notification.AuthenticationTicket.Identity.FindFirst("http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier").Value;
+                            if (userinfoSub == idTokenSub)
                             {
                                 //add claims from UserInfo endpoint to identity
                                 foreach(var entry in userInfoEndpointResult)
@@ -148,10 +148,10 @@ namespace NetsBrokerIntegration.DotNet
         }
 
 
-        private static async Task<JObject> UserInfoEndpointClaims(AuthorizationCodeReceivedNotification notification, HttpClient client, OpenIdConnectConfiguration configuration, string accesstoken)
+        private static async Task<JObject> UserInfoEndpointClaims(AuthorizationCodeReceivedNotification notification, HttpClient client, OpenIdConnectConfiguration configuration, string accessToken)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, configuration.UserInfoEndpoint);
-            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accesstoken);
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var response = await client.SendAsync(request, notification.Request.CallCancelled);
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
