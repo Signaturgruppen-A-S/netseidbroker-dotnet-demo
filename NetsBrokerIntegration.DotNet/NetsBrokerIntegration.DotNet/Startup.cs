@@ -65,7 +65,7 @@ namespace NetsBrokerIntegration.DotNet
                             notification.Response.Redirect("/Home/Error" + notification.Request.QueryString);
                         }
 
-                        return Task.CompletedTask;
+                        return Task.FromResult(0);
                     },
 
                     // Retrieve an access token from the remote token endpoint
