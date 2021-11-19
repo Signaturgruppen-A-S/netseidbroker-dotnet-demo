@@ -11,3 +11,29 @@ For .Net 4.5, see: https://stackoverflow.com/questions/62576470/how-to-set-sames
 
 ## Umbraco
 See https://www.zeroseven.com.au/Blog/2017/May-2017/Developer-Tip-Aspnet-Identity for inspiration.
+
+## .Net 4.5
+```
+<package id="Microsoft.AspNet.Identity.Core" version="2.2.2" targetFramework="net451" />
+<package id="Microsoft.AspNet.Identity.Owin" version="2.2.2" targetFramework="net451" />
+<package id="Microsoft.AspNet.Mvc" version="5.2.7" targetFramework="net451" />
+<package id="Microsoft.AspNet.Razor" version="3.2.7" targetFramework="net451" />
+<package id="Microsoft.AspNet.WebPages" version="3.2.7" targetFramework="net451" />
+<package id="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" version="2.0.1.0" targetFramework="net451" />
+<package id="Microsoft.IdentityModel.JsonWebTokens" version="6.12.2" targetFramework="net452" />
+<package id="Microsoft.IdentityModel.Logging" version="6.12.2" targetFramework="net452" />
+<package id="Microsoft.IdentityModel.Protocols" version="6.12.2" targetFramework="net452" />
+<package id="Microsoft.IdentityModel.Protocols.OpenIdConnect" version="6.12.2" targetFramework="net452" />
+<package id="Microsoft.IdentityModel.Tokens" version="6.12.2" targetFramework="net452" />
+<package id="Microsoft.Owin" version="4.2.0" targetFramework="net452" />
+<package id="Microsoft.Owin.Host.SystemWeb" version="4.0.1" targetFramework="net451" />
+<package id="Microsoft.Owin.Security" version="4.2.0" targetFramework="net452" />
+<package id="Microsoft.Owin.Security.Cookies" version="4.0.1" targetFramework="net451" />
+<package id="Microsoft.Owin.Security.OAuth" version="4.0.1" targetFramework="net451" />
+<package id="Microsoft.Owin.Security.OpenIdConnect" version="4.2.0" targetFramework="net452" />
+<package id="Microsoft.Web.Infrastructure" version="1.0.0.0" targetFramework="net451" />
+<package id="Modernizr" version="2.6.2" targetFramework="net451" />
+<package id="Newtonsoft.Json" version="12.0.2" targetFramework="net452" />
+<package id="Owin" version="1.0" targetFramework="net451" />
+<package id="System.IdentityModel.Tokens.Jwt" version="6.12.2" targetFramework="net452" /> 
+```
