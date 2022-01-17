@@ -14,6 +14,9 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Web;
+using OpenIdConnectConfiguration = Microsoft.IdentityModel.Protocols.OpenIdConnectConfiguration;
+using OpenIdConnectRequestType = Microsoft.IdentityModel.Protocols.OpenIdConnectRequestType;
 
 [assembly: OwinStartup(typeof(Startup))]
 
@@ -38,7 +41,6 @@ namespace NetsBrokerIntegration.DotNet
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 LoginPath = new PathString("/Home/Signin"),
-                CookieSameSite = SameSiteMode.None
             });
             
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
@@ -52,7 +54,6 @@ namespace NetsBrokerIntegration.DotNet
                 PostLogoutRedirectUri = _postLogoutRedirectUri,
                 ResponseType = OpenIdConnectResponseType.CodeIdToken,
                 Scope = "openid mitid nemid",
-                SaveTokens = true,
 
                 Notifications = new OpenIdConnectAuthenticationNotifications
                 {
@@ -111,7 +112,7 @@ namespace NetsBrokerIntegration.DotNet
                     // Attach the id_token stored in the authentication cookie to the logout request.
                     RedirectToIdentityProvider = notification =>
                     {
-                        if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
+                        if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.LogoutRequest)
                         {
                             var token = notification.OwinContext.Authentication.User?.FindFirst(OpenIdConnectParameterNames.IdToken);
                             if (token != null)
@@ -126,7 +127,7 @@ namespace NetsBrokerIntegration.DotNet
             });
         }
 
-        private static async Task<JObject> ExchangeCodeForTokens(AuthorizationCodeReceivedNotification notification, HttpClient client, OpenIdConnectConfiguration configuration)
+        private static async Task<JObject> ExchangeCodeForTokens(AuthorizationCodeReceivedNotification notification, HttpClient client, Microsoft.IdentityModel.Protocols.OpenIdConnectConfiguration configuration)
         {
             var request = new HttpRequestMessage(HttpMethod.Post, configuration.TokenEndpoint)
             {
