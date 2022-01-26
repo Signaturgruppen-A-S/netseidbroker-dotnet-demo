@@ -29,6 +29,7 @@ namespace NetsBrokerIntegration.DotNet
         private readonly string _postLogoutRedirectUri = ConfigurationManager.AppSettings["PostLogoutRedirectUri"];
         private readonly string _authority = ConfigurationManager.AppSettings["Authority"];
         private readonly string _clientSecret = ConfigurationManager.AppSettings["ClientSecret"];
+        public static string UserinfoUri = ConfigurationManager.AppSettings["UserInfoUri"];
 
         public void Configuration(IAppBuilder app)
         {
@@ -151,7 +152,7 @@ namespace NetsBrokerIntegration.DotNet
 
         private static async Task<JObject> UserInfoEndpointClaims(AuthorizationCodeReceivedNotification notification, HttpClient client, OpenIdConnectConfiguration configuration, string accessToken)
         {
-            var request = new HttpRequestMessage(HttpMethod.Post, configuration.UserInfoEndpoint);
+            var request = new HttpRequestMessage(HttpMethod.Post, UserinfoUri);
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var response = await client.SendAsync(request, notification.Request.CallCancelled);
             response.EnsureSuccessStatusCode();
