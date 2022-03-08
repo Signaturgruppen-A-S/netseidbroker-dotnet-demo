@@ -26,6 +26,7 @@ namespace NetsBrokerIntegration.DotNet
         private readonly string _postLogoutRedirectUri = ConfigurationManager.AppSettings["PostLogoutRedirectUri"];
         private readonly string _authority = ConfigurationManager.AppSettings["Authority"];
         private readonly string _clientSecret = ConfigurationManager.AppSettings["ClientSecret"];
+        private readonly string _promptMode = ConfigurationManager.AppSettings["PromptMode"];
 
         public void Configuration(IAppBuilder app)
         {
@@ -117,6 +118,14 @@ namespace NetsBrokerIntegration.DotNet
                             if (token != null)
                             {
                                 notification.ProtocolMessage.IdTokenHint = token.Value;
+                            }
+                        }
+
+                        if (notification.ProtocolMessage.RequestType == OpenIdConnectRequestType.Authentication)
+                        {
+                            if(_promptMode != null)
+                            {
+                                notification.ProtocolMessage.Parameters.Add("prompt", _promptMode);
                             }
                         }
 
