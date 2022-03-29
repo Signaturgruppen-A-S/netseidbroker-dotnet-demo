@@ -29,6 +29,9 @@ namespace NetsBrokerIntegration.DotNet.Controllers
                 return RedirectToAction("Index");
             }
 
+            //custom properties?
+            //see extensionmethod: GetExternalAuthenticationProperties() (OwinExtensions.cs)
+
             var id = new ClaimsIdentity(DefaultAuthenticationTypes.ApplicationCookie);
             id.AddClaims(loginInfo.ExternalIdentity.Claims);
             HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), id);
@@ -40,10 +43,12 @@ namespace NetsBrokerIntegration.DotNet.Controllers
         {
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
-                HttpContext.GetOwinContext().Authentication.Challenge(new AuthenticationProperties
+                var authProperties = new AuthenticationProperties
                 {
                     RedirectUri = Url.Action("Signin", new { ReturnUrl = "/" })
-                }, "OpenIdConnect");
+                };
+                authProperties.Dictionary.Add("customParam1", "customValue1"); //stored DefaultAuthenticationTypes.ExternalCookie
+                HttpContext.GetOwinContext().Authentication.Challenge(authProperties, "OpenIdConnect");
                 return new HttpUnauthorizedResult();
             }
 
