@@ -39,7 +39,7 @@ See https://www.zeroseven.com.au/Blog/2017/May-2017/Developer-Tip-Aspnet-Identit
 ```
 
 ## MitID testusers
-See https://pp.mitid.dk/test-tool/frontend/#/create-identity for administration of MitID test users.
+MitID testusers can be administered in the MitID Test Tool.
 
 ## Postman collection for simple OIDC requests
 1: Get authorization code via a flow, e.g. using https://openidconnect.net (see postman example URL in postman collection below)
