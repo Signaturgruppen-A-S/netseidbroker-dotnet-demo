@@ -10,7 +10,7 @@ See this stackoverflow for example: https://stackoverflow.com/questions/33661935
 For .Net 4.5, see: https://stackoverflow.com/questions/62576470/how-to-set-samesite-value-to-none-in-net-4-5-2 
 
 ## Umbraco
-See https://www.zeroseven.com.au/Blog/2017/May-2017/Developer-Tip-Aspnet-Identity for inspiration.
+See https://github.com/jbreuer/Umbraco-OpenIdConnect-Example for inspiration.
 
 ## .Net 4.5
 ```
