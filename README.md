@@ -1,5 +1,7 @@
 # integration-client-dotnet
 
+> This demo is meant for inspiration and examples. Do not use this code directly in production.
+
 .Net 4.7 demo.
 
 .Net MVC does not support Code Authorization flow, but it is possible to do a Hybrid flow, with some manual additions.
