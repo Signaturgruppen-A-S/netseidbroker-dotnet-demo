@@ -65,6 +65,7 @@ namespace NetsBrokerIntegration.DotNet.Controllers
         public ActionResult Claims()
         {
             ViewBag.UserClaims = ClaimsPrincipal.Current.Identities.First().Claims.ToList();
+            ViewBag.Pades = HttpContext.Session["pades"];
             return View();
         }
 

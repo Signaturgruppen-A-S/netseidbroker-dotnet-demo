@@ -196,6 +196,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AuthenticationErrorResponse.cs" />
+    <Compile Include="Models\PadesDocument.cs" />
+    <Compile Include="Models\SignTextApiResponse.cs" />
+    <Compile Include="Models\TokenEndpointResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
