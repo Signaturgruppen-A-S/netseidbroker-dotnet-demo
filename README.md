@@ -42,10 +42,3 @@ See https://github.com/jbreuer/Umbraco-OpenIdConnect-Example for inspiration.
 
 ## MitID testusers
 MitID testusers can be administered in the MitID Test Tool.
-
-## Postman collection for simple OIDC requests
-1: Get authorization code via a flow, e.g. using https://openidconnect.net (see postman example URL in postman collection below)
-
-2: Use postman to invoke Token endpoint and Userinfo endpoint
-
-https://github.com/Signaturgruppen-A-S/nets-eID-broker-demo/blob/main/postman/Nets%20eID%20Broker%20(PP).postman_collection.json
